@@ -51,7 +51,9 @@
     <Compile Include="Common\IMobileBarcodeScanner.cs" />
     <Compile Include="Common\MobileBarcodeScanningOptions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\strings.xml" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZXing.Net\zxing.monoandroid.csproj">
       <Project>{8971B59D-78F1-49BA-808D-CBADB37F571F}</Project>
@@ -59,11 +61,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Resources\layout\" />
     <Folder Include="Resources\drawable\" />
-    <Folder Include="Resources\values\" />
-    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\zxingscanneractivitylayout.axml" />

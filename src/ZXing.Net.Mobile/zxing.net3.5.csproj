@@ -1,52 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8971B59D-78F1-49BA-808D-CBADB37F571F}</ProjectGuid>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{E9498F6A-0FA7-4E34-BD38-9C54DC800941}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>zxing.monoandroid</RootNamespace>
-    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
-    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AssemblyName>zxing.monoandroid</AssemblyName>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZXing</RootNamespace>
+    <AssemblyName>zxing</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>False</Optimize>
-    <OutputPath>..\..\Build\Debug\monodroid\</OutputPath>
-    <DefineConstants>DEBUG;MONOANDROID</DefineConstants>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Build\Debug\net3.5\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET35</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>False</ConsolePause>
-    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>True</Optimize>
-    <OutputPath>..\..\Build\Release\monodroid\</OutputPath>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Build\Release\net3.5\</OutputPath>
+    <DefineConstants>TRACE;NET35</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>False</ConsolePause>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-    <DefineConstants>MONOANDROID</DefineConstants>
-    <DocumentationFile>..\..\Build\Release\monodroid\zxing.monoandroid.XML</DocumentationFile>
-    <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile>..\..\Build\Release\net3.5\zxing.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\Key\private.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenTK-1.0" />
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="Mono.Android" />
-    <Reference Include="System.Numerics" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
-  <ItemGroup />
   <ItemGroup>
     <Compile Include="aztec\AztecDetectorResult.cs" />
     <Compile Include="aztec\AztecReader.cs" />
@@ -69,6 +65,7 @@
     <Compile Include="BaseLuminanceSource.cs" />
     <Compile Include="Binarizer.cs" />
     <Compile Include="BinaryBitmap.cs" />
+    <Compile Include="BitmapLuminanceSource.cs" />
     <Compile Include="client\result\AbstractDoCoMoResultParser.cs" />
     <Compile Include="client\result\AddressBookAUResultParser.cs" />
     <Compile Include="client\result\AddressBookDoCoMoResultParser.cs" />
@@ -110,6 +107,7 @@
     <Compile Include="common\BigInteger\Sign.cs" />
     <Compile Include="common\BitArray.cs" />
     <Compile Include="common\BitMatrix.cs" />
+    <Compile Include="common\BitMatrix.Drawing.cs" />
     <Compile Include="common\BitSource.cs" />
     <Compile Include="common\CharacterSetECI.cs" />
     <Compile Include="common\DecoderResult.cs" />
@@ -196,11 +194,11 @@
     <Compile Include="oned\ITFWriter.cs" />
     <Compile Include="oned\MSIReader.cs" />
     <Compile Include="oned\MSIWriter.cs" />
-    <Compile Include="oned\PlesseyWriter.cs" />
     <Compile Include="oned\MultiFormatOneDReader.cs" />
     <Compile Include="oned\MultiFormatUPCEANReader.cs" />
     <Compile Include="oned\OneDimensionalCodeWriter.cs" />
     <Compile Include="oned\OneDReader.cs" />
+    <Compile Include="oned\PlesseyWriter.cs" />
     <Compile Include="oned\rss\AbstractRSSReader.cs" />
     <Compile Include="oned\rss\DataCharacter.cs" />
     <Compile Include="oned\rss\expanded\BitArrayBuilder.cs" />
@@ -294,8 +292,9 @@
     <Compile Include="qrcode\QRCodeWriter.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="ReaderException.cs" />
+    <Compile Include="renderer\BitmapRenderer.cs" />
     <Compile Include="renderer\IBarcodeRenderer.cs" />
-    <Compile Include="renderer\SVGRenderer.cs" />
+    <Compile Include="renderer\SvgRenderer.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="ResultMetadataType.cs" />
     <Compile Include="ResultPoint.cs" />
@@ -305,7 +304,18 @@
     <Compile Include="SupportClass.cs" />
     <Compile Include="Writer.cs" />
     <Compile Include="WriterException.cs" />
-    <Compile Include="xamarin\BitmapRenderer.monoandroid.cs" />
-    <Compile Include="xamarin\BitmapLuminanceSource.monoandroid.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Key\private.snk">
+      <Link>Properties\private.snk</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>
